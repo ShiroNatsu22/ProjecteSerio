@@ -12,7 +12,8 @@ public class Square extends Figure {
 
         System.out.println("Quina es la dimensió que vols per al quadrat?");
         dimensions= sc.nextInt();
-        System.out.println("El vols relleno? (y/n)");
+        fill=sc.nextLine().equals("Y");
+
 
     }
 
@@ -20,7 +21,5 @@ public class Square extends Figure {
         return dimensions;
     }
 
-    public boolean isFill() {
-        return fill;
-    }
+
 }

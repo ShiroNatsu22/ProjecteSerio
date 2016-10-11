@@ -43,12 +43,32 @@
 
             if (Main.figure instanceof Square){
                 Square square = (Square) Main.figure;
-
+                g.setColor(Color.red);
+               // g.fillRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
                 g.drawRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
             }
+            else if (Main.figure instanceof Text) {
+                Text text = (Text) Main.figure;
+
+                g.drawString(text.getText(),text.getPosX(), text.getPosY());
+            }
+
+            else if (Main.figure instanceof Rectangle){
+                Rectangle rectangle = (Rectangle) Main.figure;
+                g.setColor(Color.red);
+                // g.fillRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
+                g.drawRect(rectangle.getPosX(),rectangle.getPosY(),rectangle.getWidth(),rectangle.getHeigth());
+
+            }else if(Main.figure instanceof Circle){
+                Circle circle =(Circle) Main.figure;
+                g.setColor(Color.red);
+                g.drawArc(circle.getPosX(),circle.getPosY(),circle.getWidth(),circle.getHeigth(),circle.getStartAngle(),
+                circle.getArcAngle());
+            }
+        }
 
 
         }
 
-    }
+
 

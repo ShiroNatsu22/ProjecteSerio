@@ -22,6 +22,8 @@ public class Main {
         answer = sc.nextLine();
 
         if (answer.equals("A")) {
+            figure=new Text();
+            figure.data();
             draw();
 
         } else if (answer.equals("B")) {
@@ -32,6 +34,8 @@ public class Main {
             draw();
 
         } else if (answer.equals("D")) {
+            figure=new Circle();
+            figure.data();
             draw();
 
         } else if (answer.equals("E")) {
@@ -40,6 +44,8 @@ public class Main {
             draw();
 
         } else if (answer.equals("F")) {
+            figure=new Rectangle();
+            figure.data();
             draw();
 
         } else if (answer.equals("G")) {
