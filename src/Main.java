@@ -1,94 +1,67 @@
 import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Objects;
 import java.util.Scanner;
+import java.util.List;
 
 /**
- * Created by jgarcias on 06/10/16.
+ * Created by jgarcias on 11/10/16.
  */
 public class Main {
 
 
-
-
-    private static String answer;
-    private static int squareDimension;
-    private static boolean paintSquare=true;
-    private static int posX;
-    private static int posY;
-
+    private static String answer = "";
     private static Scanner sc = new Scanner(System.in);
+    public static Figure figure;
+
+    static void menu() {
 
 
-    static void menu() throws InvocationTargetException, InterruptedException {
+        System.out.println("A.Text \n" + "B.Punt \n" + "C.Línia \n" + "D.Cercle \n" + "E.Quadrat \n"
+                + "F.Rectangle \n" + "G.Poligon \n" + "H.Historic de figures \n" + "I.Sortir \n");
 
+        System.out.println("Que vols fer?:");
+        answer = sc.nextLine();
 
-        boolean run = true;
+        if (answer.equals("A")) {
+            draw();
 
-        while (run ) {
-            System.out.println("Tria la figura que vols que sigui dibuixada: \n" +
-                    "A.Cadena de text \n" +
-                    "B.Punt \n" +
-                    "C.Línia \n" +
-                    "D.Cercle \n" +
-                    "E.Quadrat \n" +
-                    "F.Retangle \n" +
-                    "G.Polígon \n" +
-                    "H.Historial \n" +
-                    "I.Sortir \n");
+        } else if (answer.equals("B")) {
 
-            answer = sc.nextLine();
+            draw();
 
-            if (answer.equals("A")) {
+        } else if (answer.equals("C")) {
+            draw();
 
-                text();
-            }
-            else if (answer.equals("B")) {
+        } else if (answer.equals("D")) {
+            draw();
 
-            }
-            else if (answer.equals("C")) {
+        } else if (answer.equals("E")) {
+            figure=new Square();
+            figure.data();
+            draw();
 
-            }
-            else if (answer.equals("D")) {
+        } else if (answer.equals("F")) {
+            draw();
 
-            }
-            else if (answer.equals("E")) {
+        } else if (answer.equals("G")) {
+            draw();
 
-                square();
-
-            }
-            else if (answer.equals("F")) {
-
-            }
-            else if (answer.equals("G")) {
-
-            }
-            else if (answer.equals("H")) {
-
-            }
-            else if (answer.equals("I")) {
-                run=false;
-            } else {
-                System.out.println("Introdueix una opció valida");
-
-            }
+        } else if (answer.equals("H")) {
+            draw();
+        }else if(answer.equals("I")){
+            return;
         }
-
+        else {
+            System.out.println("Introdueix una opcio valida");
+            menu();
+        }
 
     }
 
-    static void functions() throws InvocationTargetException, InterruptedException {
-        EventQueue.invokeAndWait(new Runnable() {
+    static void draw() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    textString frame = new textString();
-                    frame.setSquareDimension(squareDimension);
-                    frame.setPosX(posX);
-                    frame.setPosY(posY);
-                    frame.setText(answer);
-                    if (paintSquare) {
-                        frame.setPaintSquare(paintSquare);
-                    }
+                    drawFigures frame = new drawFigures();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -97,35 +70,9 @@ public class Main {
         });
     }
 
-    static void text() throws InvocationTargetException, InterruptedException {
 
-        System.out.println("Introdueix el text que vols mostrar:");
-        answer=sc.nextLine();
-        System.out.println("A quina posicio de x el vols?");
-        posX=sc.nextInt();
-        System.out.println("A quina posicio de y el vols?");
-        posY=sc.nextInt();
 
-        functions();
+    public static void main(String[] args) {
+        menu();
     }
-    static void square() throws InvocationTargetException, InterruptedException {
-        System.out.println("De quina dimesio vols el quadrat?:");
-        squareDimension=sc.nextInt();
-        System.out.println("El vols relleno? :) (Si/No)");
-        paintSquare=sc.next().equals("Si");
-
-        System.out.println("A quina posicio de x el vols?");
-        posX=sc.nextInt();
-        System.out.println("A quina posicio de y el vols?");
-        posY=sc.nextInt();
-
-        functions();
-    }
-
-
-    public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-
-    menu();
-    }
-
 }
