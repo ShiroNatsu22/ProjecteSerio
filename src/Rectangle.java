@@ -5,6 +5,7 @@ public class Rectangle extends Figure{
 
     private int width;
     private int heigth;
+    private boolean fill;
 
 
 
@@ -15,6 +16,8 @@ public class Rectangle extends Figure{
         width=sc.nextInt();
         System.out.println("I altura?");
         heigth=sc.nextInt();
+        System.out.println("El vols relleno?(s|n");
+        fill=sc.next().equals("s");
     }
 
     public int getWidth() {
@@ -23,5 +26,9 @@ public class Rectangle extends Figure{
 
     public int getHeigth() {
         return heigth;
+    }
+
+    public boolean isFill() {
+        return fill;
     }
 }

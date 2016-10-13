@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
@@ -8,9 +9,10 @@ import java.util.List;
 public class Main {
 
 
-    private static String answer = "";
+    protected static String answer = "";
     private static Scanner sc = new Scanner(System.in);
     public static Figure figure;
+    protected static List<Figure> f =new ArrayList<Figure>();
 
     static void menu() {
 
@@ -24,43 +26,53 @@ public class Main {
         if (answer.equals("A")) {
             figure=new Text();
             figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("B")) {
-
+            figure=new Dot();
+            figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("C")) {
+            figure=new Line();
+            figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("D")) {
             figure=new Circle();
             figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("E")) {
             figure=new Square();
             figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("F")) {
             figure=new Rectangle();
             figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("G")) {
             draw();
 
         } else if (answer.equals("H")) {
+
             draw();
         }else if(answer.equals("I")){
             return;
         }
         else {
             System.out.println("Introdueix una opcio valida");
-            menu();
-        }
 
+        }
+        menu();
     }
 
     static void draw() {

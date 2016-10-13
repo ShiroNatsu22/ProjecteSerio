@@ -33,42 +33,78 @@
             contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
             contentPane.setLayout(new BorderLayout(0, 0));
             setContentPane(contentPane);
-            setBounds(0,0,800,600);
+            setBounds(0, 0, 800, 600);
         }
 
 
-        public void paint (Graphics g)
-        {
+        public void paint (Graphics g) {
             super.paint(g);
+            if (Main.answer.equals("H")) {
+                for (int i = 0; i < Main.f.size(); i++) {
+                    Main.figure = Main.f.get(i);
 
-            if (Main.figure instanceof Square){
-                Square square = (Square) Main.figure;
-                g.setColor(Color.red);
-               // g.fillRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
-                g.drawRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
+                    selectedFigure(g);
+
+                }
+            } else {
+                selectedFigure(g);
             }
-            else if (Main.figure instanceof Text) {
+        }
+
+        void selectedFigure(Graphics g) {
+            if (Main.figure.getColor().equals("negre")) {
+                g.setColor(Color.black);
+            } else if (Main.figure.getColor().equals("blau")) {
+                g.setColor(Color.blue);
+            } else if (Main.figure.getColor().equals("vermell")) {
+                g.setColor(Color.red);
+            } else if (Main.figure.getColor().equals("taronja")) {
+                g.setColor(Color.orange);
+            } else if (Main.figure.getColor().equals("groc")) {
+                g.setColor(Color.yellow);
+            }
+            if (Main.figure instanceof Square) {
+                Square square = (Square) Main.figure;
+
+                if (square.isFill()) {
+
+                    g.fillRect(square.getPosX(), square.getPosY(), square.getDimensions(), square.getDimensions());
+                }
+                g.drawRect(square.getPosX(), square.getPosY(), square.getDimensions(), square.getDimensions());
+            } else if (Main.figure instanceof Text) {
                 Text text = (Text) Main.figure;
 
-                g.drawString(text.getText(),text.getPosX(), text.getPosY());
-            }
-
-            else if (Main.figure instanceof Rectangle){
+                g.drawString(text.getText(), text.getPosX(), text.getPosY());
+            } else if (Main.figure instanceof Rectangle) {
                 Rectangle rectangle = (Rectangle) Main.figure;
-                g.setColor(Color.red);
-                // g.fillRect(square.getPosX(),square.getPosY(),square.getDimensions(),square.getDimensions());
-                g.drawRect(rectangle.getPosX(),rectangle.getPosY(),rectangle.getWidth(),rectangle.getHeigth());
+                if (rectangle.isFill()) {
 
-            }else if(Main.figure instanceof Circle){
-                Circle circle =(Circle) Main.figure;
-                g.setColor(Color.red);
-                g.drawArc(circle.getPosX(),circle.getPosY(),circle.getWidth(),circle.getHeigth(),circle.getStartAngle(),
-                circle.getArcAngle());
+                    g.fillRect(rectangle.getPosX(), rectangle.getPosY(), rectangle.getWidth(), rectangle.getHeigth());
+                }
+                g.drawRect(rectangle.getPosX(), rectangle.getPosY(), rectangle.getWidth(), rectangle.getHeigth());
+
+            } else if (Main.figure instanceof Circle) {
+                Circle circle = (Circle) Main.figure;
+                if (circle.isFill()) {
+
+                    g.fillArc(circle.getPosX(), circle.getPosY(), circle.getWidth(), circle.getHeigth(), 0, 360);
+                }
+                g.drawArc(circle.getPosX(), circle.getPosY(), circle.getWidth(), circle.getHeigth(), 0,
+                        360);
+            } else if (Main.figure instanceof Line) {
+                Line line = (Line) Main.figure;
+
+                g.drawLine(line.getPosX(), line.getPosY(), line.getLongitude(), line.getPositionY());
+            }else if (Main.figure instanceof Dot){
+                Dot dot= (Dot) Main.figure;
+
+                g.drawString(dot.getDot(),dot.getPosX(),dot.getPosY());
             }
         }
+    }
 
 
-        }
+
 
 
 

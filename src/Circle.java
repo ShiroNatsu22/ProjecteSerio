@@ -7,6 +7,7 @@ public class Circle extends Figure {
     private int heigth;
     private int startAngle;
     private int arcAngle;
+    private boolean fill;
 
     @Override
     void data() {
@@ -15,10 +16,8 @@ public class Circle extends Figure {
         width=sc.nextInt();
         System.out.println("I altura?");
         heigth=sc.nextInt();
-        System.out.println("Quin angle vols que tengui la circumferencia?");
-        startAngle=sc.nextInt();
-        System.out.println("hola");
-        arcAngle=sc.nextInt();
+        System.out.println("El vols relleno?(s|n)");
+        fill=sc.next().equals("s");
 
     }
 
@@ -30,11 +29,9 @@ public class Circle extends Figure {
         return heigth;
     }
 
-    public int getStartAngle() {
-        return startAngle;
-    }
 
-    public int getArcAngle() {
-        return arcAngle;
+
+    public boolean isFill() {
+        return fill;
     }
 }

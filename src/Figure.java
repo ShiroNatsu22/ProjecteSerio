@@ -17,7 +17,7 @@ public class Figure {
         posX = sc.nextInt();
         posY = sc.nextInt();
 
-        System.out.println("De quin color vols que estigui?");
+        System.out.println("De quin color vols que estigui?(negre|blau|vermell|taronja|groc)");
         color = sc.next();
 
     }
@@ -30,7 +30,7 @@ public class Figure {
         return posY;
     }
 
-    public String getColor(String red) {
+    public String getColor() {
         return color;
     }
 }
