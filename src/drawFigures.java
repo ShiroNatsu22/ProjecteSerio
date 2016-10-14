@@ -97,8 +97,10 @@
                 g.drawLine(line.getPosX(), line.getPosY(), line.getLongitude(), line.getPositionY());
             }else if (Main.figure instanceof Dot){
                 Dot dot= (Dot) Main.figure;
-
                 g.drawString(dot.getDot(),dot.getPosX(),dot.getPosY());
+            }else if ( Main.figure instanceof Poligon){
+                Poligon poligon = (Poligon) Main.figure;
+                g.drawPolygon(poligon.getX(),poligon.getY(),poligon.getNumber());
             }
         }
     }

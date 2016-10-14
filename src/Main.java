@@ -60,6 +60,9 @@ public class Main {
             draw();
 
         } else if (answer.equals("G")) {
+            figure=new Poligon();
+            figure.data();
+            f.add(figure);
             draw();
 
         } else if (answer.equals("H")) {
