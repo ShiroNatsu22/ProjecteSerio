@@ -3,31 +3,25 @@
  */
 public class Circle extends Figure {
 
-    private int width;
-    private int heigth;
-    private int startAngle;
-    private int arcAngle;
+    private int radius;
+
+
     private boolean fill;
 
     @Override
     void data() {
         super.data();
-        System.out.println("Quina amplada vols per al la circumferencia?");
-        width=sc.nextInt();
-        System.out.println("I altura?");
-        heigth=sc.nextInt();
+        System.out.println("Quin es el radi que vols?");
+
         System.out.println("El vols relleno?(s|n)");
         fill=sc.next().equals("s");
 
     }
 
-    public int getWidth() {
-        return width;
+    public int getRadius() {
+        return radius;
     }
 
-    public int getHeigth() {
-        return heigth;
-    }
 
 
 

@@ -16,17 +16,9 @@
 
         private JPanel contentPane;
 
-        /**
-         * Launch the application.
-         */
 
 
-
-
-        /**
-         * Create the frame.
-         */
-        public drawFigures() {
+        public drawFigures() {//El JPanelñ
             setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             setBounds(100, 100, 450, 300);
             contentPane = new JPanel();
@@ -37,7 +29,7 @@
         }
 
 
-        public void paint (Graphics g) {
+        public void paint (Graphics g) {//Servira per a pintar el historial,ja que quan al nostre menu elegigem la opcio H el que fara es recorre la llista creada al main i anira imprimint els diferents Objectes figura amb les configuracions que lis hem donat anteriorment
             super.paint(g);
             if (Main.answer.equals("H")) {
                 for (int i = 0; i < Main.f.size(); i++) {
@@ -51,7 +43,7 @@
             }
         }
 
-        void selectedFigure(Graphics g) {
+        void selectedFigure(Graphics g) {//Aqui obtenim la configuracio donada al objecte(gets)
             if (Main.figure.getColor().equals("negre")) {
                 g.setColor(Color.black);
             } else if (Main.figure.getColor().equals("blau")) {
@@ -87,9 +79,9 @@
                 Circle circle = (Circle) Main.figure;
                 if (circle.isFill()) {
 
-                    g.fillArc(circle.getPosX(), circle.getPosY(), circle.getWidth(), circle.getHeigth(), 0, 360);
+                    g.fillArc(circle.getPosX(), circle.getPosY(), circle.getRadius(),circle.getRadius(), 0, 360);
                 }
-                g.drawArc(circle.getPosX(), circle.getPosY(), circle.getWidth(), circle.getHeigth(), 0,
+                g.drawArc(circle.getPosX(), circle.getPosY(), circle.getRadius(),circle.getRadius(), 0,
                         360);
             } else if (Main.figure instanceof Line) {
                 Line line = (Line) Main.figure;

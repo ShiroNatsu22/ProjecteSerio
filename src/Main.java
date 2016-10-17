@@ -9,12 +9,12 @@ import java.util.List;
 public class Main {
 
 
-    protected static String answer = "";
+    protected static String answer = ""; //Guardara la resposta donada al menu i despres la comparara per a sebre quin objecte haura de dibuixar
     private static Scanner sc = new Scanner(System.in);
-    public static Figure figure;
-    protected static List<Figure> f =new ArrayList<Figure>();
+    public static Figure figure;//On guardarem els objectes
+    protected static List<Figure> f =new ArrayList<Figure>();//Servira per fer l'historial, ja que els objectes creats els guardarem dins de aquesta llista
 
-    static void menu() {
+    static void menu() {//Apart de poder elegir la figura que volem que pinti, dibuixara la figura objecte, i cada vegada que s'ha creat una figura l'afegira a la llista
 
 
         System.out.println("A.Text \n" + "B.Punt \n" + "C.Línia \n" + "D.Cercle \n" + "E.Quadrat \n"
@@ -78,7 +78,7 @@ public class Main {
         menu();
     }
 
-    static void draw() {
+    static void draw() {//Sera la encarregada de dibuixar la figura, i esta cridada al menu.
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

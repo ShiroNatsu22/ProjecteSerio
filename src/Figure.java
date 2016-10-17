@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by jgarcias on 11/10/16.
  */
-public class Figure {
+public class Figure {//Aquesta sera la clase pare, contendra totes les variables comunes a tots els objectes, despres cridarem aquesta clase als fills que contendran tota la informacio introduida,mes tota la informacio introduida als fills per conformar un objecte quadrat per exemple, i despres a la classe drawFigures cridarem a totes les configuracions
     protected Scanner sc = new Scanner(System.in);
     private int posX;
     private int posY;
