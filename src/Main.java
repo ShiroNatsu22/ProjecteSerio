@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by jgarcias on 11/10/16.
  */
-public class Main {
+public class Main  {
 
 
     protected static String answer = ""; //Guardara la resposta donada al menu i despres la comparara per a sebre quin objecte haura de dibuixar

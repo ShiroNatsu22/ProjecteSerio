@@ -3,11 +3,13 @@ import java.util.Scanner;
 /**
  * Created by jgarcias on 11/10/16.
  */
-public class Figure {//Aquesta sera la clase pare, contendra totes les variables comunes a tots els objectes, despres cridarem aquesta clase als fills que contendran tota la informacio introduida,mes tota la informacio introduida als fills per conformar un objecte quadrat per exemple, i despres a la classe drawFigures cridarem a totes les configuracions
+public class Figure implements Cloneable {//Aquesta sera la clase pare, contendra totes les variables comunes a tots els objectes, despres cridarem aquesta clase als fills que contendran tota la informacio introduida,mes tota la informacio introduida als fills per conformar un objecte quadrat per exemple, i despres a la classe drawFigures cridarem a totes les configuracions
     protected Scanner sc = new Scanner(System.in);
     private int posX;
     private int posY;
     private String color;
+    private String id;
+
 
     void data() {
         // per a que el next agafi tot, ja que si troba un espai en blanc, en e text mostrar la 1a paraula
@@ -33,4 +35,13 @@ public class Figure {//Aquesta sera la clase pare, contendra totes les variables
     public String getColor() {
         return color;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }
